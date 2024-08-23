@@ -1,12 +1,25 @@
 const express = require('express');
 const bodyParser = require(`body-parser`);
-const { createTableOnDb, getDbs, getTables } = require('./service/dbTableService');
-const { getProject, listSharedProjects, listProjects } = require('./service/projectService');
+const {
+  createTableOnDb,
+  getDbs,
+  getTables,
+} = require('./service/dbTableService');
+const {
+  getProject,
+  listSharedProjects,
+  listProjects,
+} = require('./service/projectService');
+const {
+  listProjectBranchDatabases,
+  listProjectBranches,
+} = require('./service/branchService');
+const { createFourStageEnvBranches } = require('./workflows/branchWorkflows');
 const app = express();
 
 app.use(bodyParser());
 
-const port = 3001
+const port = 3001;
 
 // async function createTableOnDatabase({dbName}){
 // await createTableOnDb({
@@ -34,7 +47,15 @@ const port = 3001
 //   });
 // }
 
+async function test() {
+  const result = await createFourStageEnvBranches({
+    project_id: 'damp-water-09961065',
+    branchNames: ['qa', 'load', 'uat', 'prod'],
+  });
+  console.log(result);
+}
 
+test();
 app.listen(port, () => {
-    console.log(`Server connected on port : ${port}`)
-})
+  console.log(`Server connected on port : ${port}`);
+});

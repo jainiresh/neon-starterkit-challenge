@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "apis": [
+    {
+      "identifier": "neon-tech",
+      "source": "@neon-tech/v2.0#356rhzm052hidu",
+      "integrity": "sha512-7wdXOzStlb755E+OEQ0pjfjKRnAePkBLBcZO699OcINIAHisM5ubf0A9kUgk3aX3WRUwq895cUFKvRRqQkXYaw==",
+      "installerVersion": "6.1.2"
+    }
+  ]
+}

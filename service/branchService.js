@@ -1,10 +1,9 @@
+const neonTech = require('../config/neonTechConfig');
 const sql = require('../config/pgConfig');
 
-async function createProjectBranch(projectId) {
+async function createProjectBranch(payload) {
   try {
-    const { data } = await neonTech.createProjectBranch({
-      project_id: projectId,
-    });
+    const { data } = await neonTech.createProjectBranch(payload);
     console.log(data);
   } catch (err) {
     console.error(err);
